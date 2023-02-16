@@ -1,75 +1,122 @@
-const displayNames = document.getElementById('displayNames');
+import { displayAllNames, getData } from "./display.js";
+const show10 = document.getElementById('show10');
+const show20 = document.getElementById('show20');
+const show30 = document.getElementById('show30');
+const show40 = document.getElementById('show40');
+const show50 = document.getElementById('show50');
 
+const sortBy = document.getElementById('sortBy');
 
-let names;
-
-async function getData() {
-    const response = await fetch('../data/data.json');
-    const data = await response.json();
-    names = data.People;
-    console.log(names);
-    displayAllNames()
-}
-
-function displayAllNames() {
-    names.map(name => {
-        let row = document.createElement('div');
-        row.className = 'row';
-        row.style.border = '2px solid';
-
-        let col1 = document.createElement('div');
-        col1.className = 'col';
-
-        let col2 = document.createElement('div');
-        col2.className = 'col';
-
-        let col3 = document.createElement('div');
-        col3.className = 'col';
-
-        let col4 = document.createElement('div');
-        col4.className = 'col';
-
-        let col5 = document.createElement('div');
-        col5.className = 'col';
-
-        let col6 = document.createElement('div');
-        col6.className = 'col';
-
-        let p1 = document.createElement('p');
-        p1.textContent = name.Id;
-
-        let p2 = document.createElement('p');
-        p2.textContent = name.FirstName;
-
-        let p3 = document.createElement('p');
-        p3.textContent = name.LastName;
-
-        let p4 = document.createElement('p');
-        p4.textContent = name.Email;
-
-        let p5 = document.createElement('p');
-        p5.textContent = name.Height;
-
-        let p6 = document.createElement('p');
-        p6.textContent = name.Age;
-
-        col1.appendChild(p1);
-        col2.appendChild(p2);
-        col3.appendChild(p3);
-        col4.appendChild(p4);
-        col5.appendChild(p5);
-        col6.appendChild(p6);
-
-        row.appendChild(col1);
-        row.appendChild(col2);
-        row.appendChild(col3);
-        row.appendChild(col4);
-        row.appendChild(col5);
-        row.appendChild(col6);
-
-        displayNames.appendChild(row);
+show10.addEventListener('click', function() {
+    displayAllNames(1,10);
+    sortBy.value = 'none';
+    sortBy.addEventListener('change', function() {
+        if(sortBy.value === 'id') {
+            displayAllNames(1,10,'Id')
+        } else if (sortBy.value === 'firstName') {
+            displayAllNames(1,10,'FirstName')
+        } else if (sortBy.value === 'lastName') {
+            displayAllNames(1,10,'LastName')
+        } else if (sortBy.value === 'email') {
+            displayAllNames(1,10,'Email')
+        } else if (sortBy.value === 'height') {
+            displayAllNames(1,10,'Height')
+        } else if (sortBy.value === 'age') {
+            displayAllNames(1,10,'Age')
+        }
     });
-}
+});
+show20.addEventListener('click', function() {
+    displayAllNames(1,20);
+    sortBy.value = 'none';
+    sortBy.addEventListener('change', function() {
+        if(sortBy.value === 'id') {
+            displayAllNames(1,20,'Id')
+        } else if (sortBy.value === 'firstName') {
+            displayAllNames(1,20,'FirstName')
+        } else if (sortBy.value === 'lastName') {
+            displayAllNames(1,20,'LastName')
+        } else if (sortBy.value === 'email') {
+            displayAllNames(1,20,'Email')
+        } else if (sortBy.value === 'height') {
+            displayAllNames(1,20,'Height')
+        } else if (sortBy.value === 'age') {
+            displayAllNames(1,20,'Age')
+        }
+    });
+});
+show30.addEventListener('click', function() {
+    displayAllNames(1,30);
+    sortBy.value = 'none';
+    sortBy.addEventListener('change', function() {
+        if(sortBy.value === 'id') {
+            displayAllNames(1,30,'Id')
+        } else if (sortBy.value === 'firstName') {
+            displayAllNames(1,30,'FirstName')
+        } else if (sortBy.value === 'lastName') {
+            displayAllNames(1,30,'LastName')
+        } else if (sortBy.value === 'email') {
+            displayAllNames(1,30,'Email')
+        } else if (sortBy.value === 'height') {
+            displayAllNames(1,30,'Height')
+        } else if (sortBy.value === 'age') {
+            displayAllNames(1,30,'Age')
+        }
+    });
+});
+show40.addEventListener('click', function() {
+    displayAllNames(1,40);
+    sortBy.value = 'none';
+    sortBy.addEventListener('change', function() {
+        if(sortBy.value === 'id') {
+            displayAllNames(1,40,'Id')
+        } else if (sortBy.value === 'firstName') {
+            displayAllNames(1,40,'FirstName')
+        } else if (sortBy.value === 'lastName') {
+            displayAllNames(1,40,'LastName')
+        } else if (sortBy.value === 'email') {
+            displayAllNames(1,40,'Email')
+        } else if (sortBy.value === 'height') {
+            displayAllNames(1,40,'Height')
+        } else if (sortBy.value === 'age') {
+            displayAllNames(1,40,'Age')
+        }
+    });
+});
+show50.addEventListener('click', function() {
+    displayAllNames(1,50);
+    sortBy.value = 'none';
+    sortBy.addEventListener('change', function() {
+        if(sortBy.value === 'id') {
+            displayAllNames(1,50,'Id')
+        } else if (sortBy.value === 'firstName') {
+            displayAllNames(1,50,'FirstName')
+        } else if (sortBy.value === 'lastName') {
+            displayAllNames(1,50,'LastName')
+        } else if (sortBy.value === 'email') {
+            displayAllNames(1,50,'Email')
+        } else if (sortBy.value === 'height') {
+            displayAllNames(1,50,'Height')
+        } else if (sortBy.value === 'age') {
+            displayAllNames(1,50,'Age')
+        }
+    });
+});
 
+sortBy.addEventListener('change', function() {
+    if(sortBy.value === 'id') {
+        displayAllNames(1,10,'Id')
+    } else if (sortBy.value === 'firstName') {
+        displayAllNames(1,10,'FirstName')
+    } else if (sortBy.value === 'lastName') {
+        displayAllNames(1,10,'LastName')
+    } else if (sortBy.value === 'email') {
+        displayAllNames(1,10,'Email')
+    } else if (sortBy.value === 'height') {
+        displayAllNames(1,10,'Height')
+    } else if (sortBy.value === 'age') {
+        displayAllNames(1,10,'Age')
+    }
+});
 
 getData()
